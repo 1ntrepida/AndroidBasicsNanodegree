@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.courtcounter.MainActivity"
+    android:weightSum="1">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="488dp"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:layout_weight="1.13">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="514dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="120sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p1One"
+                    android:text="+1" />
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p1Two"
+                    android:text="+2" />
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p1Three"
+                    android:text="+3" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="533dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/player2"
+                android:layout_width="164dp"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:gravity="center_horizontal"
+                android:text="0"
+                android:textColor="@android:color/black"
+                android:textSize="120sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p2One"
+                    android:text="+1" />
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p2Two"
+                    android:text="+2" />
+
+                <Button
+                    android:layout_width="54sp"
+                    android:layout_height="54sp"
+                    android:onClick="p2Three"
+                    android:text="+3" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:onClick="reset"
+        android:text="RESET" />
+
+</LinearLayout>
