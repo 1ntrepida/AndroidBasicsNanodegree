@@ -16,58 +16,49 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void p1One(View view)
-    {
+    public void playerOnePlusOne(View view) {
         playerOne++;
         displayP1(playerOne);
     }
 
-    public void p1Two(View view)
-    {
+    public void playerOnePlusTwo(View view) {
         playerOne+=2;
         displayP1(playerOne);
     }
 
-    public void p1Three(View view)
-    {
+    public void playerOnePlusThree(View view) {
         playerOne+=3;
         displayP1(playerOne);
     }
 
-    public void p2One(View view)
-    {
+    public void playerTwoPlusOne(View view) {
         playerTwo++;
         displayP2(playerTwo);
     }
 
-    public void p2Two(View view)
-    {
+    public void playerTwoPlusTwo(View view) {
         playerTwo+=2;
         displayP2(playerTwo);
     }
 
-    public void p2Three(View view)
-    {
+    public void playerTwoPlusThree(View view) {
         playerTwo+=3;
         displayP2(playerTwo);
     }
 
-    private void displayP1(int number)
-    {
+    private void displayP1(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.player1);
         quantityTextView.setText(""+number);
     }
 
-    private void displayP2(int number)
-    {
+    private void displayP2(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.player2);
         quantityTextView.setText(""+number);
     }
 
-    public void reset(View view)
-    {
+    public void reset(View view) {
         playerOne = 0;
         playerTwo = 0;
         displayP1(playerOne);

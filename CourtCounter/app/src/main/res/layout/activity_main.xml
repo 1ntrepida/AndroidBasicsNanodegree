@@ -4,26 +4,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.android.courtcounter.MainActivity"
-    android:weightSum="1">
+    android:weightSum="1"
+    tools:context="com.example.android.courtcounter.MainActivity">
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="488dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="1"
-        android:layout_weight="1.13">
+        android:weightSum="2">
+
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="514dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/player1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:gravity="center_horizontal"
+                android:padding="10dp"
                 android:text="0"
                 android:textColor="@android:color/black"
                 android:textSize="120sp" />
@@ -36,37 +37,35 @@
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p1One"
-                    android:text="+1" />
+                    android:onClick="playerOnePlusOne"
+                    android:text="@string/plusOne" />
 
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p1Two"
-                    android:text="+2" />
+                    android:onClick="playerOnePlusTwo"
+                    android:text="@string/plusTwo" />
 
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p1Three"
-                    android:text="+3" />
-
-
+                    android:onClick="playerOnePlusThree"
+                    android:text="@string/plusThree" />
             </LinearLayout>
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="533dp"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/player2"
                 android:layout_width="164dp"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
                 android:gravity="center_horizontal"
+                android:padding="10dp"
                 android:text="0"
                 android:textColor="@android:color/black"
                 android:textSize="120sp" />
@@ -79,24 +78,22 @@
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p2One"
-                    android:text="+1" />
+                    android:onClick="playerTwoPlusOne"
+                    android:text="@string/plusOne" />
 
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p2Two"
-                    android:text="+2" />
+                    android:onClick="playerTwoPlusTwo"
+                    android:text="@string/plusTwo" />
 
                 <Button
                     android:layout_width="54sp"
                     android:layout_height="54sp"
-                    android:onClick="p2Three"
-                    android:text="+3" />
-
+                    android:onClick="playerTwoPlusThree"
+                    android:text="@string/plusThree" />
 
             </LinearLayout>
-
         </LinearLayout>
     </LinearLayout>
 
@@ -104,6 +101,5 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:onClick="reset"
-        android:text="RESET" />
-
+        android:text="@string/reset" />
 </LinearLayout>
