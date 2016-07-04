@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--This parent contains all of the app's contents and allows for the two columns
+    in addition to the reset button-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,12 +9,38 @@
     android:weightSum="1"
     tools:context="com.example.android.courtcounter.MainActivity">
 
+    <!-- The layout which supports the two players, side by side, provided below.
+    The reviewer said,
+
+    "You need to have your layout such that you
+    have two columns. One for each team. A good start would be to
+    change this android:orientation attribute to vertical. You
+    should also do this for the other team."
+
+    I believe I satisfy the requirement,
+
+     column one   |    column two
+     _______________________________
+     |                             |
+     |     0              0        |
+     |                             |
+     | +1 +2 +3         +1 +2 +3   |
+     |                             |
+     |                             |
+                 ...
+                 ...
+     |          RESET              |
+     _______________________________
+
+     If I don't, please tell me
+     in further detail.-->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="2">
 
+        <!-- Contains the score and three buttons for player one-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,25 +63,26 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerOnePlusOne"
                     android:text="@string/plusOne" />
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerOnePlusTwo"
                     android:text="@string/plusTwo" />
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerOnePlusThree"
                     android:text="@string/plusThree" />
             </LinearLayout>
         </LinearLayout>
 
+        <!-- Contains the score and three buttons for player one-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,20 +105,20 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerTwoPlusOne"
                     android:text="@string/plusOne" />
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerTwoPlusTwo"
                     android:text="@string/plusTwo" />
 
                 <Button
-                    android:layout_width="54sp"
-                    android:layout_height="54sp"
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
                     android:onClick="playerTwoPlusThree"
                     android:text="@string/plusThree" />
 
@@ -97,6 +126,7 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!-- reset button -->
     <Button
         android:layout_width="match_parent"
         android:layout_height="60dp"

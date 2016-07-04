@@ -22,12 +22,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playerOnePlusTwo(View view) {
-        playerOne+=2;
+        playerOne += 2;
         displayP1(playerOne);
     }
 
     public void playerOnePlusThree(View view) {
-        playerOne+=3;
+        playerOne += 3;
         displayP1(playerOne);
     }
 
@@ -37,25 +37,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void playerTwoPlusTwo(View view) {
-        playerTwo+=2;
+        playerTwo += 2;
         displayP2(playerTwo);
     }
 
     public void playerTwoPlusThree(View view) {
-        playerTwo+=3;
+        playerTwo += 3;
         displayP2(playerTwo);
     }
 
     private void displayP1(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.player1);
-        quantityTextView.setText(""+number);
+        quantityTextView.setText("" + number);
     }
 
     private void displayP2(int number) {
         TextView quantityTextView = (TextView) findViewById(
                 R.id.player2);
-        quantityTextView.setText(""+number);
+        quantityTextView.setText("" + number);
     }
 
     public void reset(View view) {
