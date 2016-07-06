@@ -33,37 +33,37 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/namethesong"
+            android:text="Who directed the song 'Bad'?"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/bad"
+            android:id="@+id/michaeljackson"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="Bad"
+            android:text="Michael Jackson"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <CheckBox
-            android:id="@+id/theydontcareaboutus"
+            android:id="@+id/martinscorsese"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="They Don't Care About Us"
+            android:text="Martin Scorsese"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <CheckBox
-            android:id="@+id/maninthemirror"
+            android:id="@+id/alsharpton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="Man In The Mirror"
+            android:text="Al Sharpton"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <!-- Second Question-->
         <TextView
@@ -72,35 +72,44 @@
             android:paddingTop="20dp"
             android:text="@string/firstquestion"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold" />
 
-        <CheckBox
-            android:id="@+id/q11"
-            android:layout_width="wrap_content"
+        <RadioGroup
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:buttonTint="@android:color/white"
-            android:text="@string/firstquestionchoice1"
-            android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:orientation="vertical">
 
-        <CheckBox
-            android:id="@+id/q12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/white"
-            android:text="@string/firstquestionchoice2"
-            android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            <RadioButton
+                android:id="@+id/q21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:text="@string/firstquestionchoice1"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/answer_size"
+                android:textStyle="bold" />
 
-        <CheckBox
-            android:id="@+id/q13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:buttonTint="@android:color/white"
-            android:text="@string/firstquestionchoice3"
-            android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            <RadioButton
+                android:id="@+id/q22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:text="@string/firstquestionchoice2"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/answer_size"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/q23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@android:color/white"
+                android:text="@string/firstquestionchoice3"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/answer_size"
+                android:textStyle="bold" />
+        </RadioGroup>
 
         <!-- Third Question -->
         <ImageView
@@ -116,7 +125,7 @@
             android:layout_height="wrap_content"
             android:text="@string/namethesong"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold" />
 
         <EditText
@@ -135,7 +144,7 @@
             android:paddingTop="20dp"
             android:text="@string/secondquestion"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold" />
 
         <RadioGroup
@@ -150,7 +159,7 @@
                 android:backgroundTint="@android:color/white"
                 android:text="Yes"
                 android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:textSize="@dimen/answer_size"
                 android:textStyle="bold" />
 
             <RadioButton
@@ -160,7 +169,7 @@
                 android:backgroundTint="@android:color/white"
                 android:text="No"
                 android:textColor="@android:color/white"
-                android:textSize="15sp"
+                android:textSize="@dimen/answer_size"
                 android:textStyle="bold" />
         </RadioGroup>
 
@@ -176,37 +185,37 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/namethesong"
+            android:text="What songs sampled Michael Jackson's 'The Way You Make Me Feel'?"
             android:textColor="@android:color/white"
-            android:textSize="20sp"
+            android:textSize="@dimen/question_size"
             android:textStyle="bold" />
 
         <CheckBox
-            android:id="@+id/leavemealone"
+            android:id="@+id/rihanna"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="Leave Me Alone"
+            android:text="Nobody's Business by Rihanna"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <CheckBox
-            android:id="@+id/thewaytoymakemefeel"
+            android:id="@+id/kanye"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="The Way You Make Me Feel"
+            android:text="Famous by Kanye West"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <CheckBox
-            android:id="@+id/pyt"
+            android:id="@+id/lilwayne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:buttonTint="@android:color/white"
-            android:text="P.Y.T."
+            android:text="You Song by Lil Wayne"
             android:textColor="@android:color/white"
-            android:textSize="15sp" />
+            android:textSize="@dimen/answer_size" />
 
         <Button
             android:layout_width="wrap_content"

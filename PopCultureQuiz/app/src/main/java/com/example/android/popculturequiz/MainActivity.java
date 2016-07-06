@@ -24,23 +24,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void countPoints(){
-        CheckBox checkBox = (CheckBox) findViewById(R.id.bad);
+        CheckBox checkBox = (CheckBox) findViewById(R.id.michaeljackson);
         boolean firstQuestion_answerOne = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.theydontcareaboutus);
+        checkBox = (CheckBox) findViewById(R.id.martinscorsese);
         boolean firstQuestion_answerTwo = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.maninthemirror);
+        checkBox = (CheckBox) findViewById(R.id.alsharpton);
         boolean firstQuestion_answerThree = checkBox.isChecked();
-        if(firstQuestion_answerOne && (!firstQuestion_answerTwo) && (!firstQuestion_answerThree)) {
+        if(firstQuestion_answerOne && firstQuestion_answerTwo && (!firstQuestion_answerThree)) {
             points++;
         }
 
-        checkBox = (CheckBox) findViewById(R.id.q11);
-        boolean secondQuestion_answerOne = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.q12);
-        boolean secondQuestion_answerTwo = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.q13);
-        boolean secondQuestion_answerThree = checkBox.isChecked();
-        if((!secondQuestion_answerOne) && secondQuestion_answerTwo && (!secondQuestion_answerThree)) {
+        RadioButton five = (RadioButton) findViewById(R.id.q22);
+        if (five.isChecked()){
             points++;
         }
 
@@ -51,17 +46,17 @@ public class MainActivity extends AppCompatActivity {
         }
 
         RadioButton llama = (RadioButton) findViewById(R.id.yesllama);
-        if (llama.isChecked() == true){
+        if (llama.isChecked()){
             points++;
         }
 
-        checkBox = (CheckBox) findViewById(R.id.leavemealone);
+        checkBox = (CheckBox) findViewById(R.id.rihanna);
         boolean fifthQuestion_answerOne = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.thewaytoymakemefeel);
+        checkBox = (CheckBox) findViewById(R.id.kanye);
         boolean fifthQuestion_answerTwo = checkBox.isChecked();
-        checkBox = (CheckBox) findViewById(R.id.pyt);
+        checkBox = (CheckBox) findViewById(R.id.lilwayne);
         boolean fifthQuestion_answerThree = checkBox.isChecked();
-        if((!secondQuestion_answerOne) && secondQuestion_answerTwo && (!secondQuestion_answerThree)) {
+        if(fifthQuestion_answerOne && (!fifthQuestion_answerTwo) && fifthQuestion_answerThree) {
             points++;
         }
     }
