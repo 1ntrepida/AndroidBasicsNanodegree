@@ -8,44 +8,217 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/black"
         android:orientation="vertical">
 
+        <!-- Start of the quiz -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:text="@string/intro"
+            android:textColor="@android:color/white"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <!-- First Question-->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/bad"
             android:layout_gravity="top"
+            android:adjustViewBounds="true"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/bad" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="@string/namethesong"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
+        <CheckBox
+            android:id="@+id/bad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="Bad"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/theydontcareaboutus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="They Don't Care About Us"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/maninthemirror"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="Man In The Mirror"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <!-- Second Question-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="@string/firstquestion"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/q11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/firstquestionchoice1"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/q12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/firstquestionchoice2"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/q13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="@string/firstquestionchoice3"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <!-- Third Question -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/earthsong"
+            android:adjustViewBounds="true"
+            android:paddingTop="20dp"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/earthsong" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="@string/namethesong"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:inputType="textCapWords"
+            android:id="@+id/inputText"
+            android:shadowColor="@android:color/white"
+            android:backgroundTint="@android:color/white"/>
+
+        <!-- Fourth Question-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="20dp"
+            android:text="@string/secondquestion"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <RadioButton android:id="@+id/yesllama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yes"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="@android:color/white"/>
+
+        <RadioButton android:id="@+id/nollama"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No"
+            android:textColor="@android:color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:backgroundTint="@android:color/white"/>
+
+        <!-- Fifth Question-->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/thewayyoumakemefeel"
+            android:adjustViewBounds="true"
+            android:paddingTop="20dp"
             android:scaleType="fitXY"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/thewayyoumakemefeel" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!" />
+            android:text="@string/namethesong"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <CheckBox
+            android:id="@+id/leavemealone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="Leave Me Alone"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/thewaytoymakemefeel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="The Way You Make Me Feel"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <CheckBox
+            android:id="@+id/pyt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:buttonTint="@android:color/white"
+            android:text="P.Y.T."
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:height="25dp"
+            android:width="60dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/white"
+            android:textColor="@android:color/black"
+            android:text="Submit!"
+            android:onClick="determineWinner"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text=" "
+            android:id="@+id/result"
+            android:textColor="@android:color/white"
+            android:textSize="35sp"/>
 
     </LinearLayout>
 </ScrollView>

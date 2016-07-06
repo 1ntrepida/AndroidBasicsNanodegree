@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">PopCultureQuiz</string>
+    <string name="intro">How well do you know Michael Jackson? </string>
+    <string name="namethesong">Name the song!</string>
+    <string name="firstquestion">How old was the King of Pop when he gave his first public performance?"</string>
+    <string name="firstquestionchoice1">10 years old</string>
+    <string name="firstquestionchoice2">5 years old</string> <!--The right one -->
+    <string name="firstquestionchoice3">7 years old</string>
+    <string name="secondquestion">Did Michael Jackson own a llama?"</string>
 </resources>
