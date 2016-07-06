@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -49,7 +50,10 @@ public class MainActivity extends AppCompatActivity {
             points++;
         }
 
-        //radio buttons
+        RadioButton llama = (RadioButton) findViewById(R.id.yesllama);
+        if (llama.isChecked() == true){
+            points++;
+        }
 
         checkBox = (CheckBox) findViewById(R.id.leavemealone);
         boolean fifthQuestion_answerOne = checkBox.isChecked();
@@ -65,8 +69,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayPoints() {
-        TextView result = (TextView) findViewById(R.id.result);
-        result.setText("You got "+ points + " out of 5 correct!");
+        String result = "You got "+ points + " out of 5 correct!";
+        Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
+        toast.show();
     }
-
 }
