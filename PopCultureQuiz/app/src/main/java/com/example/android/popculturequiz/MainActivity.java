@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    int points = 0;
+    int mPoints;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,31 +23,31 @@ public class MainActivity extends AppCompatActivity {
         displayPoints();
     }
 
-    private void countPoints(){
+    private void countPoints() {
         CheckBox checkBox = (CheckBox) findViewById(R.id.michaeljackson);
         boolean firstQuestion_answerOne = checkBox.isChecked();
         checkBox = (CheckBox) findViewById(R.id.martinscorsese);
         boolean firstQuestion_answerTwo = checkBox.isChecked();
         checkBox = (CheckBox) findViewById(R.id.alsharpton);
         boolean firstQuestion_answerThree = checkBox.isChecked();
-        if(firstQuestion_answerOne && firstQuestion_answerTwo && (!firstQuestion_answerThree)) {
-            points++;
+        if (firstQuestion_answerOne && firstQuestion_answerTwo && (!firstQuestion_answerThree)) {
+            mPoints++;
         }
 
         RadioButton five = (RadioButton) findViewById(R.id.q22);
-        if (five.isChecked()){
-            points++;
+        if (five.isChecked()) {
+            mPoints++;
         }
 
         EditText editText = (EditText) findViewById(R.id.inputText);
         String text = editText.getText().toString();
-        if(text.equals("Earth Song")) {
-            points++;
+        if (text.equalsIgnoreCase("Earth Song")) {
+            mPoints++;
         }
 
         RadioButton llama = (RadioButton) findViewById(R.id.yesllama);
-        if (llama.isChecked()){
-            points++;
+        if (llama.isChecked()) {
+            mPoints++;
         }
 
         checkBox = (CheckBox) findViewById(R.id.rihanna);
@@ -56,13 +56,18 @@ public class MainActivity extends AppCompatActivity {
         boolean fifthQuestion_answerTwo = checkBox.isChecked();
         checkBox = (CheckBox) findViewById(R.id.lilwayne);
         boolean fifthQuestion_answerThree = checkBox.isChecked();
-        if(fifthQuestion_answerOne && (!fifthQuestion_answerTwo) && fifthQuestion_answerThree) {
-            points++;
+        if (fifthQuestion_answerOne && (!fifthQuestion_answerTwo) && fifthQuestion_answerThree) {
+            mPoints++;
         }
     }
 
     private void displayPoints() {
-        String result = "You got "+ points + " out of 5 correct!";
+        String result;
+        if (mPoints == 5) {
+            result = "You got all of them right! Shamone!";
+        } else {
+            result = "You got " + mPoints + " out of 5 correct!";
+        }
         Toast toast = Toast.makeText(getApplicationContext(), result, Toast.LENGTH_LONG);
         toast.show();
     }

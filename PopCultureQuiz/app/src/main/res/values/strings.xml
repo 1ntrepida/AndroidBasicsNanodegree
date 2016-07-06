@@ -6,5 +6,5 @@
     <string name="firstquestionchoice1">10 years old</string>
     <string name="firstquestionchoice2">5 years old</string> <!--The right one -->
     <string name="firstquestionchoice3">7 years old</string>
-    <string name="secondquestion">Did Michael Jackson own a llama?"</string>
+    <string name="fouthquestion">Did Michael Jackson own a llama?"</string>
 </resources>
