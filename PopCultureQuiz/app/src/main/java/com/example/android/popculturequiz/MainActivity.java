@@ -64,8 +64,6 @@ public class MainActivity extends AppCompatActivity {
         if((!secondQuestion_answerOne) && secondQuestion_answerTwo && (!secondQuestion_answerThree)) {
             points++;
         }
-
-
     }
 
     private void displayPoints() {
