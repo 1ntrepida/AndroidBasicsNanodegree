@@ -9,9 +9,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.musicapp.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/nowPlaying"
-        android:text="Now Playing" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/now_playing"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="nowPlaying"
+            android:text="Now Playing" />
+
+        <Button
+            android:id="@+id/search_music"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="searchMusic"
+            android:text="Search Music" />
+    </LinearLayout>
 </RelativeLayout>
