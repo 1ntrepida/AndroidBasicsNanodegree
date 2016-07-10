@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Start the new activity
                 startActivity(numbersIntent);
+                int x = 0;
+
             }
         });
     }
