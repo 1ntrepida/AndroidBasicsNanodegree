@@ -3,5 +3,9 @@
     <string name="main_description">This is the main page. This app would stream snippets of songs then give the user an option to purchase the song, then view it in the library.</string>
     <string name="song_library">View Song Library</string>
     <string name="search_music">Search Music</string>
-    <string name="search_music_description"></string>
+    <string name="detail_description">Here, the parsed data will be enlarged as well as have a square image of the album art on the top of the screen.</string>
+    <string name="buy_description">After reading about the Android Pay API, I learned that the following steps are necessary. 1st set up the credentials, modify the manifest, create a wallet fragment and sample the code found at <!-- https://developers.google.com/android-pay/android/tutorial-->to make the songs purchasable.</string>
+    <string name="library_description">Shown in the same layout as the search activity, all purchased songs will be added here and will be listed by artist. Clicking each song will give the user an option to view the song details. At the bottom of the page, there will be a now playing button that will take them to that activity.</string>
+    <string name="nowPlaying_description">Another Brick in the Wall by Pink Floyd is playing. In reality, it would send an explicit intent to play the music.</string>
+    <string name="search_description">This app would parse song titles, artists, albums, and album art using discogs.com\'s api, then put each string within a list layout and have every song lead to an intent that brings up an activity which makes the song purchasable.</string>
 </resources>

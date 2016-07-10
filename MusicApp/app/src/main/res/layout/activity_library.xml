@@ -22,6 +22,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="Shown in the same layout as the search activity, all purchased songs will be added here and will be listed by artist. Clicking each song will give the user an option to view the song details. At the bottom of the page, there will be a now playing button that will take them to that activity."/>
+        android:text="@string/library_description"/>
 
 </LinearLayout>

@@ -6,5 +6,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Here, the parsed data will be enlarged as well as have a square image of the album art on the top of the screen."/>
+        android:textSize="20sp"
+        android:textColor="@android:color/black"
+        android:text="@string/detail_description"/>
 </LinearLayout>

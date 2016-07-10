@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:text="Another Brick in the Wall by Pink Floyd is playing. In reality, it would send an explicit intent to play the music."/>
+        android:text="@string/nowPlaying_description"/>
 
 </LinearLayout>

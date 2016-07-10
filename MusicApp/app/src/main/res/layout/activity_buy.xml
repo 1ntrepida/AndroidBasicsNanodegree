@@ -8,6 +8,6 @@
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        android:text="After reading about the Android Pay API, I learned that the following steps are nessecary. 1st set up the credentials, modify the manifest, create a wallet fragment and sample code found at https://developers.google.com/android-pay/android/tutorial to make the songs purchasable."/>
+        android:text="@string/buy_description"/>
 
 </LinearLayout>

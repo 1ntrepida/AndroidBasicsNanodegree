@@ -14,6 +14,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
-        android:text="This app would parse song titles, artists, albums, and album art using discogs.com's api, then put each string within a list layout and have every song lead to an intent that brings up an activity which makes the song purchasable."/>
+        android:text="@string/search_description"/>
 
 </LinearLayout>
