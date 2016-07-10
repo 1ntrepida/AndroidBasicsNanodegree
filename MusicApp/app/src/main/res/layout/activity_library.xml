@@ -7,7 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Show Details"
-        android:onClick="showDetailsMusic"
         android:id="@+id/show_details_music"
         />
 
@@ -15,7 +14,6 @@
         android:id="@+id/now_playing"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="nowPlaying"
         android:text="Now Playing" />
 
     <TextView

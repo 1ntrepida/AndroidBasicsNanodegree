@@ -18,14 +18,12 @@
             android:id="@+id/search_music"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="searchMusic"
             android:text="@string/search_music" />
 
         <Button
             android:id="@+id/library_music"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="listMusic"
             android:text="@string/song_library" />
 
         <TextView

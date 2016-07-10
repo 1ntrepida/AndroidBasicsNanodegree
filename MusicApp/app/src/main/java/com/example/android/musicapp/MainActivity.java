@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,10 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
 
-    public void searchMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.search_music);
+        Button searchMusic = (Button) findViewById(R.id.search_music);
 
         // Set a click listener on that View
         searchMusic.setOnClickListener(new View.OnClickListener() {
@@ -24,18 +22,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
                 Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
-
                 // Start the new activity
                 startActivity(searchIntent);
             }
         });
-    }
 
-    public void listMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.library_music);
+        Button libraryMusic = (Button) findViewById(R.id.library_music);
 
         // Set a click listener on that View
-        searchMusic.setOnClickListener(new View.OnClickListener() {
+        libraryMusic.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {

@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
 /**
  * Created by Alexa on 7/10/2016.
@@ -15,10 +15,8 @@ public class ListMusicActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
-    }
 
-    public void showDetailsMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.show_details_music);
+        Button searchMusic = (Button) findViewById(R.id.show_details_music);
 
         // Set a click listener on that View
         searchMusic.setOnClickListener(new View.OnClickListener() {
@@ -32,10 +30,7 @@ public class ListMusicActivity extends AppCompatActivity {
                 startActivity(detailIntent);
             }
         });
-    }
-
-    public void nowPlaying(View view) {
-        TextView nowPlaying = (TextView) findViewById(R.id.now_playing);
+        Button nowPlaying = (Button) findViewById(R.id.now_playing);
 
         // Set a click listener on that View
         nowPlaying.setOnClickListener(new View.OnClickListener() {
