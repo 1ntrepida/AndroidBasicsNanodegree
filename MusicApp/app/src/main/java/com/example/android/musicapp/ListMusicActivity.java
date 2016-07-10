@@ -18,7 +18,7 @@ public class ListMusicActivity extends AppCompatActivity {
     }
 
     public void showDetailsMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.showdetails_music);
+        TextView searchMusic = (TextView) findViewById(R.id.show_details_music);
 
         // Set a click listener on that View
         searchMusic.setOnClickListener(new View.OnClickListener() {

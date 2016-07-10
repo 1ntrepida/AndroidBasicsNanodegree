@@ -17,11 +17,11 @@
         </activity>
         <activity android:name=".NowPlayingActivity"
             android:label="Now Playing"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".ListMusicActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".ListMusicActivity"/>
         </activity>
         <activity android:name=".SearchActivity"
             android:label="Search Music"
@@ -33,11 +33,11 @@
         </activity>
         <activity android:name=".BuyActivity"
             android:label="Buy Music"
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".SearchActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+                android:value=".SearchActivity"/>
         </activity>
         <activity android:name=".ListMusicActivity"
             android:label="Music Library"
@@ -46,6 +46,14 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
+        </activity>
+        <activity android:name=".DetailActivity"
+            android:label="Song Details"
+            android:parentActivityName=".ListMusicActivity">
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ListMusicActivity"/>
         </activity>
     </application>
 </manifest>
