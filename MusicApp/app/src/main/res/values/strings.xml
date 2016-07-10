@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MusicApp</string>
+    <string name="main_description">This is the main page. This app would stream snippets of songs then give the user an option to purchase the song, then view it in the library.</string>
+    <string name="song_library">View Song Library</string>
+    <string name="search_music">Search Music</string>
+    <string name="search_music_description"></string>
 </resources>

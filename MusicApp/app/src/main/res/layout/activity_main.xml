@@ -19,19 +19,19 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="searchMusic"
-            android:text="Search Music" />
+            android:text="@string/search_music" />
 
         <Button
             android:id="@+id/library_music"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="listMusic"
-            android:text="View Song Library" />
+            android:text="@string/song_library" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is the main page. This app would stream snippets of songs then give the user an option to purchase the song, or look at the song details."
+            android:text="@string/main_description"
             android:textColor="#000000"
             android:textSize="20sp" />
     </LinearLayout>

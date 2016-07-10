@@ -14,8 +14,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void buyMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.buy_music);
+    public void searchMusic(View view) {
+        TextView searchMusic = (TextView) findViewById(R.id.search_music);
 
         // Set a click listener on that View
         searchMusic.setOnClickListener(new View.OnClickListener() {
@@ -23,10 +23,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent buyIntent = new Intent(MainActivity.this, BuyActivity.class);
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
 
                 // Start the new activity
-                startActivity(buyIntent);
+                startActivity(searchIntent);
             }
         });
     }
