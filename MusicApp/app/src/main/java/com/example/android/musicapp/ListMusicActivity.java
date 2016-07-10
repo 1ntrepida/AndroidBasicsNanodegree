@@ -6,16 +6,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+/**
+ * Created by Alexa on 7/10/2016.
+ */
+public class ListMusicActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_library);
     }
 
-    public void buyMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.buy_music);
+    public void showDetailsMusic(View view) {
+        TextView searchMusic = (TextView) findViewById(R.id.showdetails_music);
 
         // Set a click listener on that View
         searchMusic.setOnClickListener(new View.OnClickListener() {
@@ -23,27 +26,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent buyIntent = new Intent(MainActivity.this, BuyActivity.class);
+                Intent detailIntent = new Intent(ListMusicActivity.this, DetailActivity.class);
 
                 // Start the new activity
-                startActivity(buyIntent);
+                startActivity(detailIntent);
             }
         });
     }
 
-    public void listMusic(View view) {
-        TextView searchMusic = (TextView) findViewById(R.id.library_music);
+    public void nowPlaying(View view) {
+        TextView nowPlaying = (TextView) findViewById(R.id.now_playing);
 
         // Set a click listener on that View
-        searchMusic.setOnClickListener(new View.OnClickListener() {
+        nowPlaying.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent buyIntent = new Intent(MainActivity.this, ListMusicActivity.class);
+                Intent playingIntent = new Intent(ListMusicActivity.this, NowPlayingActivity.class);
 
                 // Start the new activity
-                startActivity(buyIntent);
+                startActivity(playingIntent);
+
             }
         });
     }

@@ -24,7 +24,7 @@
                 android:value=".MainActivity"/>
         </activity>
         <activity android:name=".SearchActivity"
-            android:label="Search"
+            android:label="Search Music"
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -39,8 +39,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-        <activity android:name=".ListByArtistActivity"
-            android:label="List Songs By Artist"
+        <activity android:name=".ListMusicActivity"
+            android:label="Music Library"
             android:parentActivityName=".MainActivity">
             <!-- Parent activity meta-data to support 4.0 and lower -->
             <meta-data
@@ -48,5 +48,4 @@
                 android:value=".MainActivity"/>
         </activity>
     </application>
-
 </manifest>
