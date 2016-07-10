@@ -42,10 +42,44 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent searchIntent = new Intent(MainActivity.this, NowPlayingActivity.class);
+                Intent searchIntent = new Intent(MainActivity.this, SearchActivity.class);
 
                 // Start the new activity
                 startActivity(searchIntent);
+            }
+        });
+    }
+
+    public void buyMusic(View view) {
+        TextView searchMusic = (TextView) findViewById(R.id.buy_music);
+
+        // Set a click listener on that View
+        searchMusic.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers category is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link NumbersActivity}
+                Intent buyIntent = new Intent(MainActivity.this, BuyActivity.class);
+
+                // Start the new activity
+                startActivity(buyIntent);
+            }
+        });
+    }
+
+    public void listArtistMusic(View view) {
+        TextView searchMusic = (TextView) findViewById(R.id.artist_music);
+
+        // Set a click listener on that View
+        searchMusic.setOnClickListener(new View.OnClickListener() {
+            // The code in this method will be executed when the numbers category is clicked on.
+            @Override
+            public void onClick(View view) {
+                // Create a new intent to open the {@link NumbersActivity}
+                Intent buyIntent = new Intent(MainActivity.this, ListByArtistActivity.class);
+
+                // Start the new activity
+                startActivity(buyIntent);
             }
         });
     }

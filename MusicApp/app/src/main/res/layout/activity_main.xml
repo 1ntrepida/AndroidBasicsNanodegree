@@ -27,5 +27,19 @@
             android:layout_height="wrap_content"
             android:onClick="searchMusic"
             android:text="Search Music" />
+
+        <Button
+            android:id="@+id/buy_music"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="buyMusic"
+            android:text="Buy Music" />
+
+        <Button
+            android:id="@+id/artist_music"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="listArtistMusic"
+            android:text="View Songs by Artist" />
     </LinearLayout>
 </RelativeLayout>
