@@ -10,7 +10,8 @@
     tools:context="com.example.android.reportcard.MainActivity">
 
     <TextView
+        android:id="@+id/report_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="ReportCard" />
 </RelativeLayout>
