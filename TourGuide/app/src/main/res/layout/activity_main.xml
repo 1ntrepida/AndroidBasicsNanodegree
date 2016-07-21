@@ -10,4 +10,73 @@
     android:id="@+id/container"
     tools:context="com.example.android.tourguide.MainActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="New York City"
+            android:textColor="@android:color/black"
+            android:textSize="50sp"
+            android:textAlignment="center" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/one"
+            android:id="@+id/oneLocation"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:background="#7d0f3d"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/two"
+            android:id="@+id/twoLocation"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:background="#7d0f3d"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/three"
+            android:id="@+id/threeLocation"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:background="#7d0f3d"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/four"
+            android:id="@+id/fourLocation"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:textColor="#ffffff"
+            android:background="#7d0f3d"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"/>
+    </LinearLayout>
 </RelativeLayout>

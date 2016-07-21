@@ -7,11 +7,13 @@ public class Location {
 
     private int imageId;
     private String name;
+    private String address;
     private String desc;
 
-    public Location(int imageId, String name, String desc) {
+    public Location(int imageId, String name, String address, String desc) {
         this.imageId = imageId;
         this.name = name;
+        this.address = address;
         this.desc = desc;
     }
 
@@ -21,6 +23,10 @@ public class Location {
 
     public String getDesc() {
         return desc;
+    }
+
+    public String getAddress() {
+        return address;
     }
 
     public String getName() {
