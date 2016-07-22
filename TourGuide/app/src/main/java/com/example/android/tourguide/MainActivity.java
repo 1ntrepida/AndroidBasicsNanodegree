@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent twoIntent = new Intent(MainActivity.this, TourTwo.class);
+                Intent twoIntent = new Intent(MainActivity.this, MonumentActivity.class);
 
                 // Start the new activity
                 startActivity(twoIntent);
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent threeIntent = new Intent(MainActivity.this, TourThree.class);
+                Intent threeIntent = new Intent(MainActivity.this, StationActivity.class);
 
                 // Start the new activity
                 startActivity(threeIntent);
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Create a new intent to open the {@link NumbersActivity}
-                Intent fourIntent = new Intent(MainActivity.this, TourFour.class);
+                Intent fourIntent = new Intent(MainActivity.this, ParkActivity.class);
 
                 // Start the new activity
                 startActivity(fourIntent);

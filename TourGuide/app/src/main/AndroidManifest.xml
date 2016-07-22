@@ -15,6 +15,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".RestaurantActivity"
+            android:label="Restaurants" />
+        <activity
+            android:name=".MonumentActivity"
+            android:label="Monuments" />
+        <activity
+            android:name=".StationActivity"
+            android:label="Stations" />
+        <activity
+            android:name=".ParkActivity"
+            android:label="Parks" />
     </application>
-
 </manifest>
