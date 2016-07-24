@@ -62,7 +62,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         TextView four = (TextView) findViewById(R.id.fourLocation);
-
+        // i am on vacation
+        // give me a break
         // Set a click listener on that View
         four.setOnClickListener(new View.OnClickListener() {
             // The code in this method will be executed when the numbers category is clicked on.
