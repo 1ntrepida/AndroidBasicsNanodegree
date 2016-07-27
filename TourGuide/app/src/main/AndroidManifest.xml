@@ -27,5 +27,9 @@
         <activity
             android:name=".ParkActivity"
             android:label="Parks" />
+        <activity
+            android:name=".MonDetailActivity"
+            android:label="Detail Activity"
+            android:parentActivityName=".MainActivity"/>
     </application>
 </manifest>
