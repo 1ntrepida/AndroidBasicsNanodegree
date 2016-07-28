@@ -4,4 +4,16 @@
     <string name="two">Monuments</string>
     <string name="three">Stations</string>
     <string name="four">Parks</string>
+    <string name="statueofliberty">Statue of Liberty</string>
+    <string name="statueofliberynaddress">Liberty Island, New York Harbor</string>
+    <string name="statueoflibertydesc">Sleek, bi-level setting for upscale New American fare with fixed price and tasting menus.</string>
+    <string name="grantstomb">Grant's Tomb</string>
+    <string name="grantstombaddress">Riverside Drive at 122nd St.</string>
+    <string name="granttombdesc">Daniel Bouluds elegant French flagship where jackets are required and expense accounts come in handy.</string>
+    <string name="nineeleven">9/11 Memorial</string>
+    <string name="nineelevenaddress">911 Greenwich St, New York, NY 10006</string>
+    <string name="nineelevendesc">Chef Thomas Keller's New American restaurant offers luxe fixed-price menus, with Central Park views.</string>
+    <string name="grandarmy">The Grand Army Plaza</string>
+    <string name="grandarmyaddress">Flatbush Ave, Brooklyn, NY 11217</string>
+    <string name="grandarmydesc">Grand Army Plaza is a public plaza that comprises the northern corner and the main entrance of Prospect Park in the New York City borough of Brooklyn.</string>
 </resources>
