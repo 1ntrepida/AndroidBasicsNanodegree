@@ -14,6 +14,10 @@ import android.view.ViewGroup;
 public class MonDetailActivity extends ActionBarActivity {
 
     Location value;
+    int imageId;
+    String name;
+    String address;
+    String desc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,11 +28,9 @@ public class MonDetailActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        Bundle bundle = new Bundle();
-        for (String key : bundle.keySet()) {
-            value = (Location) bundle.getSerializable(key);
-        }
-        value.getImageId();
+        Bundle bundle = getIntent().getExtras();
+        value = getIntent().getExtras().getParcelable("location_value");
+        imageId = value.getImageId();
     }
 
     /**
