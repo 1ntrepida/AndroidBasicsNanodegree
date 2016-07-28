@@ -8,6 +8,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by Alexa on 7/27/2016.
@@ -35,6 +37,19 @@ public class MonDetailActivity extends ActionBarActivity {
         name = value.getName();
         address = value.getAddress();
         desc = value.getDesc();
+
+        ImageView imageView = (ImageView) findViewById(R.id.locationImage);
+        imageView.setImageResource(imageId);
+
+        TextView textView = (TextView) findViewById(R.id.locationName);
+        textView.setText(name);
+
+        textView = (TextView) findViewById(R.id.locationAddress);
+        textView.setText(address);
+
+        textView = (TextView) findViewById(R.id.locationDesc);
+        textView.setText(desc);
+
     }
 
     /**

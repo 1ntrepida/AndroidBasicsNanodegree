@@ -30,6 +30,6 @@
         <activity
             android:name=".MonDetailActivity"
             android:label="Detail Activity"
-            android:parentActivityName=".MainActivity"/>
+            android:parentActivityName=".MonumentActivity"/>
     </application>
 </manifest>
