@@ -7,13 +7,24 @@
     <string name="statueofliberty">Statue of Liberty</string>
     <string name="statueofliberynaddress">Liberty Island, New York Harbor</string>
     <string name="statueoflibertydesc">Sleek, bi-level setting for upscale New American fare with fixed price and tasting menus.</string>
-    <string name="grantstomb">Grant's Tomb</string>
+    <string name="grantstomb">Grants Tomb</string>
     <string name="grantstombaddress">Riverside Drive at 122nd St.</string>
     <string name="granttombdesc">Daniel Bouluds elegant French flagship where jackets are required and expense accounts come in handy.</string>
     <string name="nineeleven">9/11 Memorial</string>
     <string name="nineelevenaddress">911 Greenwich St, New York, NY 10006</string>
-    <string name="nineelevendesc">Chef Thomas Keller's New American restaurant offers luxe fixed-price menus, with Central Park views.</string>
+    <string name="nineelevendesc">Chef Thomas Kellers New American restaurant offers luxe fixed-price menus, with Central Park views.</string>
     <string name="grandarmy">The Grand Army Plaza</string>
     <string name="grandarmyaddress">Flatbush Ave, Brooklyn, NY 11217</string>
     <string name="grandarmydesc">Grand Army Plaza is a public plaza that comprises the northern corner and the main entrance of Prospect Park in the New York City borough of Brooklyn.</string>
+    <string name="dovetail">Dovetail</string>
+    <string name="dovatailaddress">103 W 77th St, New York, NY 10024</string>
+    <string name="dovetaildesc">Sleek, bi-level setting for upscale New American fare with fixed price and tasting menus.</string>
+    <string name="daniel">Daniel</string>
+    <string name="danieladdress">60 E 65th St, New York, NY 10065</string>
+    <string name="danieldesc">Daniel Bouluds elegant French flagship where jackets are required and expense accounts come in handy.</string>
+    <string name="perse">Per Se</string>
+    <string name="perseaddress">10 Columbus Cir, New York, NY 10019</string>
+    <string name="cafe">Cafe Boulud</string>
+    <string name="cafeaddress">20 E 76th St, New York, NY 10021</string>
+    <string name="cafedesc">Daniel Bouluds cafe is run by chef Aaron Bludorn, serving high-end French fare in a chic setting.</string>
 </resources>

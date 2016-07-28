@@ -23,10 +23,10 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.location_list);
 
         locations = new ArrayList<Location>();
-        locations.add(new Location(R.drawable.res_one, "Dovetail", "103 W 77th St, New York, NY 10024", "Sleek, bi-level setting for upscale New American fare with fixed price & tasting menus."));
-        locations.add(new Location(R.drawable.res_two, "Daniel", "60 E 65th St, New York, NY 10065", "Daniel Bouluds elegant French flagship where jackets are required & expense accounts come in handy."));
-        locations.add(new Location(R.drawable.res_three, "Per Se", "10 Columbus Cir, New York, NY 10019", "Chef Thomas Keller's New American restaurant offers luxe fixed-price menus, with Central Park views."));
-        locations.add(new Location(R.drawable.res_four, "Cafe Boulud", "20 E 76th St, New York, NY 10021", "Daniel Bouluds cafe is run by chef Aaron Bludorn, serving high-end French fare in a chic setting."));
+        locations.add(new Location(R.drawable.res_one, getString(R.string.dovetail), getString(R.string.dovatailaddress), getString(R.string.dovetaildesc)));
+        locations.add(new Location(R.drawable.res_two, getString(R.string.daniel), getString(R.string.danieladdress), getString(R.string.danieldesc)));
+        locations.add(new Location(R.drawable.res_three, getString(R.string.perse), getString(R.string.perseaddress), getString(R.string.nineelevendesc)));
+        locations.add(new Location(R.drawable.res_four, getString(R.string.cafe), getString(R.string.cafeaddress), getString(R.string.cafedesc)));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.

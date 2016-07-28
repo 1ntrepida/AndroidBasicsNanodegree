@@ -31,5 +31,17 @@
             android:name=".MonDetailActivity"
             android:label="Detail Activity"
             android:parentActivityName=".MonumentActivity"/>
+        <activity
+            android:name=".ParkDetailActivity"
+            android:label="Detail Activity"
+            android:parentActivityName=".MonumentActivity"/>
+        <activity
+            android:name=".ResDetailActivity"
+            android:label="Detail Activity"
+            android:parentActivityName=".MonumentActivity"/>
+        <activity
+            android:name=".StaDetailActivity"
+            android:label="Detail Activity"
+            android:parentActivityName=".MonumentActivity"/>
     </application>
 </manifest>
