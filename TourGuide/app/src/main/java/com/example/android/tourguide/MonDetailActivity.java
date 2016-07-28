@@ -5,8 +5,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,6 +12,8 @@ import android.view.ViewGroup;
  * Created by Alexa on 7/27/2016.
  */
 public class MonDetailActivity extends ActionBarActivity {
+
+    Location value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +24,11 @@ public class MonDetailActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        Bundle bundle = new Bundle();
+        for (String key : bundle.keySet()) {
+            value = (Location) bundle.getSerializable(key);
+        }
+        value.getImageId();
     }
 
     /**
