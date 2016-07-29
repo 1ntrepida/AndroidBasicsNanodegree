@@ -32,7 +32,7 @@ public class MonDetailActivity extends ActionBarActivity {
                     .commit();
         }
         Bundle bundle = getIntent().getExtras();
-        value = (Location) bundle.getParcelable("location_value");
+        value = (Location) bundle.getParcelable(getString(R.string.locationId));
         imageId = value.getImageId();
         name = value.getName();
         address = value.getAddress();

@@ -27,4 +27,5 @@
     <string name="cafe">Cafe Boulud</string>
     <string name="cafeaddress">20 E 76th St, New York, NY 10021</string>
     <string name="cafedesc">Daniel Bouluds cafe is run by chef Aaron Bludorn, serving high-end French fare in a chic setting.</string>
+    <string name="locationId">location_value</string>
 </resources>

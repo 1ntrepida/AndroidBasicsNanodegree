@@ -23,10 +23,10 @@ public class RestaurantActivity extends AppCompatActivity {
         setContentView(R.layout.location_list);
 
         locations = new ArrayList<Location>();
-        locations.add(new Location(R.drawable.res_one, getString(R.string.dovetail), getString(R.string.dovatailaddress), getString(R.string.dovetaildesc)));
-        locations.add(new Location(R.drawable.res_two, getString(R.string.daniel), getString(R.string.danieladdress), getString(R.string.danieldesc)));
-        locations.add(new Location(R.drawable.res_three, getString(R.string.perse), getString(R.string.perseaddress), getString(R.string.nineelevendesc)));
-        locations.add(new Location(R.drawable.res_four, getString(R.string.cafe), getString(R.string.cafeaddress), getString(R.string.cafedesc)));
+        locations.add(new Location(R.mipmap.res_one_icon, getString(R.string.dovetail), getString(R.string.dovatailaddress), getString(R.string.dovetaildesc)));
+        locations.add(new Location(R.mipmap.res_two_icon, getString(R.string.daniel), getString(R.string.danieladdress), getString(R.string.danieldesc)));
+        locations.add(new Location(R.mipmap.res_three_icon, getString(R.string.perse), getString(R.string.perseaddress), getString(R.string.nineelevendesc)));
+        locations.add(new Location(R.mipmap.res_four_icon, getString(R.string.cafe), getString(R.string.cafeaddress), getString(R.string.cafedesc)));
 
         // Create an {@link WordAdapter}, whose data source is a list of {@link Word}s. The
         // adapter knows how to create list items for each item in the list.
@@ -47,8 +47,8 @@ public class RestaurantActivity extends AppCompatActivity {
                 //string item
                 Location item = adapter.getItem(position);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("location_value", item);
-                startActivity(new Intent(getApplication(), MonDetailActivity.class).putExtras(bundle));
+                bundle.putParcelable(getString(R.string.locationId), item);
+                startActivity(new Intent(getApplication(), ResDetailActivity.class).putExtras(bundle));
             }
         });
     }

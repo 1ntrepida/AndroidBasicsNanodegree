@@ -47,8 +47,8 @@ public class ParkActivity extends AppCompatActivity {
                 //string item
                 Location item = adapter.getItem(position);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("location_value", item);
-                startActivity(new Intent(getApplication(), MonDetailActivity.class).putExtras(bundle));
+                bundle.putParcelable(getString(R.string.locationId), item);
+                startActivity(new Intent(getApplication(), ParkDetailActivity.class).putExtras(bundle));
             }
         });
     }

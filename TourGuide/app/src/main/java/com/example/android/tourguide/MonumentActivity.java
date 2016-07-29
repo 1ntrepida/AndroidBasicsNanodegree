@@ -47,7 +47,7 @@ public class MonumentActivity extends AppCompatActivity {
                 //string item
                 Location item = adapter.getItem(position);
                 Bundle bundle = new Bundle();
-                bundle.putParcelable("location_value", item);
+                bundle.putParcelable(getString(R.string.locationId), item);
                 startActivity(new Intent(getApplication(), MonDetailActivity.class).putExtras(bundle));
             }
         });
