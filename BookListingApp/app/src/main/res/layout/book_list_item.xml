@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/title_list_item"
+            android:textSize="20dp"
             android:text="The Adventures of Sherlock Holmes"/>
 
         <TextView

@@ -9,11 +9,38 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".BookActivity">
 
-        <ListView
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/query"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/list"
-            android:fillViewport="true"
-            android:orientation="vertical"/>
+            android:height="50dp"
+            android:hint="Enter book title here!" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:width="100dp"
+            android:text="Refresh"
+            android:onClick="refreshInfo"/>
+    </LinearLayout>
+
+    <ListView
+        android:layout_marginTop="110dp"
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:orientation="vertical" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/howTo"
+        android:visibility="gone"/>
 </RelativeLayout>
