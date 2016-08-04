@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:src="@mipmap/book_icon"/>
 
-    <ListView
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -26,5 +26,5 @@
             android:id="@+id/author_list_item"
             android:text="Sir Arthur Conan Doyle"/>
 
-    </ListView>
+    </LinearLayout>
 </LinearLayout>
