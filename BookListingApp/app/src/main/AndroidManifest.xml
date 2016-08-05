@@ -3,6 +3,9 @@
     package="com.example.android.booklistingapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+    <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 
     <application
         android:allowBackup="true"

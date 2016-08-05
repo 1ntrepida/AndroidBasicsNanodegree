@@ -1,5 +1,8 @@
 package com.example.android.booklistingapp;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +10,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,45 +30,54 @@ public class BookActivity extends AppCompatActivity {
 
     private String requestUrl;
     private ArrayList<Book> books;
+    private ListView bookListView;
+    private TextView howto;
+    private Boolean changedStatus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.book_activity);
+        changedStatus = true;
 
         books = new ArrayList<Book>();
-        books.add(new Book("To Kill A Mockingbird", "Harper Lee"));
-        books.add(new Book("1984", "George Orwell"));
-        books.add(new Book("The Great Gatsby", "F. Scott Fitzgerald"));
+        if(savedInstanceState == null || !savedInstanceState.containsKey("key")) {
+        }
+        else {
+            books = savedInstanceState.getParcelableArrayList("key");
+        }
 
-
-        ListView bookListView = (ListView) findViewById(R.id.list);
-        BookAdapter adapter = new BookAdapter(this, books);
-
-        bookListView.setAdapter(adapter);
-    }
-
-    private void updateUi(Book book){
-        books = new ArrayList<Book>();
-        books.add(book);
-        ListView bookListView = (ListView) findViewById(R.id.list);
+        howto = (TextView) findViewById(R.id.howTo);
+        bookListView = (ListView) findViewById(R.id.list);
+        bookListView.setEmptyView(howto);
         BookAdapter adapter = new BookAdapter(this, books);
         bookListView.setAdapter(adapter);
     }
 
-    private void showHowTo(){
-        TextView howto = (TextView) findViewById(R.id.howTo);
-        howto.setText("Please type in the title of the book you want to find above!");
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putParcelableArrayList("key", books);
+        super.onSaveInstanceState(outState);
+    }
+
+    private void updateUi(ArrayList<Book> books) {
+        this.books = books;
+        ListView bookListView = (ListView) findViewById(R.id.list);
+        BookAdapter adapter = new BookAdapter(this, books);
+        bookListView.setAdapter(adapter);
+    }
+
+    private void showHowTo() {
         howto.setVisibility(View.VISIBLE);
+        bookListView.setEmptyView(getCurrentFocus());
     }
 
     public void refreshInfo(View view) {
         EditText title = (EditText) findViewById(R.id.query);
         String titleInfo = title.getText().toString();
-        if(titleInfo.equals("")){
+        if (titleInfo.equals("")) {
             showHowTo();
-        }
-        else {
+        } else {
             titleInfo = titleInfo.replaceAll(" ", "+").toLowerCase();
             requestUrl = "https://www.googleapis.com/books/v1/volumes?q=" + titleInfo + "&maxResults=10";
             TextView howto = (TextView) findViewById(R.id.howTo);
@@ -72,12 +85,26 @@ public class BookActivity extends AppCompatActivity {
             BookAsyncTask task = new BookAsyncTask();
             task.execute();
         }
+        ConnectivityManager cm =
+                (ConnectivityManager)getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        boolean isConnected = activeNetwork != null &&
+                activeNetwork.isConnectedOrConnecting();
+        Toast toast;
+        if(isConnected){
+            toast = Toast.makeText(getApplicationContext(), "Connected to the internet!",  Toast.LENGTH_SHORT);
+        }
+        else {
+            toast = Toast.makeText(getApplicationContext(), "You are not connected to the internet!",  Toast.LENGTH_SHORT);
+        }
+        toast.show();
     }
 
-    private class BookAsyncTask extends AsyncTask<URL, Void, Book> {
+    private class BookAsyncTask extends AsyncTask<URL, Void, ArrayList<Book>> {
 
         @Override
-        protected Book doInBackground(URL... urls) {
+        protected ArrayList<Book> doInBackground(URL... urls) {
             URL url = createUrl(requestUrl);
 
             String jsonResponse = "";
@@ -88,16 +115,17 @@ public class BookActivity extends AppCompatActivity {
                 // TODO Handle the IOException
             }
 
-            Book book = extractFeatureFromJson(jsonResponse);
-            return book;
+            ArrayList<Book> books = extractFeatureFromJson(jsonResponse);
+            return books;
         }
 
         @Override
-        protected void onPostExecute(Book book){
-            if (book == null){
+        protected void onPostExecute(ArrayList<Book> books) {
+            if (books == null) {
+                Toast.makeText(getApplicationContext(), "You don't have any results! Please type in a keyword then hit the \"Refresh\" button.", Toast.LENGTH_LONG).show();
                 return;
             }
-            updateUi(book);
+            updateUi(books);
         }
 
         private URL createUrl(String stringUrl) {
@@ -150,24 +178,26 @@ public class BookActivity extends AppCompatActivity {
             return output.toString();
         }
 
-        private Book extractFeatureFromJson(String bookJSON) {
+        private ArrayList<Book> extractFeatureFromJson(String bookJSON) {
             try {
                 JSONObject baseJsonResponse = new JSONObject(bookJSON);
                 JSONArray featureArray = baseJsonResponse.getJSONArray("items");
 
-                // If there are results in the features array
+                ArrayList<Book> fetchedBooks = new ArrayList<Book>();
                 if (featureArray.length() > 0) {
-                    // Extract out the first feature (which is an earthquake)
-                    JSONObject firstFeature = featureArray.getJSONObject(0);
-                    JSONObject properties = firstFeature.getJSONObject("volumeInfo");
+                    for (int i = 0; i < featureArray.length(); i++) {
+                        JSONObject firstFeature = featureArray.getJSONObject(i);
+                        JSONObject properties = firstFeature.getJSONObject("volumeInfo");
 
-                    // Extract out the title, time, and tsunami values
-                    String title = properties.getString("title");
-                    String author = properties.getString("authors");
-                    author = (author.substring(2, author.length()-2)).replaceAll("\"", "");
+                        // Extract out the title, time, and tsunami values
+                        String title = properties.getString("title");
+                        String author = properties.getString("authors");
+                        author = (author.substring(2, author.length() - 2)).replaceAll("\"", "");
 
-                    // Create a new {@link Event} object
-                    return new Book(title, author);
+                        // Create a new {@link Event} object
+                        fetchedBooks.add(new Book(title, author));
+                    }
+                    return fetchedBooks;
                 }
             } catch (JSONException e) {
             }

@@ -9,11 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".BookActivity">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/howTo"
+        android:layout_marginBottom="5dp"
+        android:text="Please type in the title of the book you want to find above!"
+        android:visibility="gone"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="15dp">
 
         <EditText
             android:id="@+id/query"
@@ -37,10 +45,4 @@
         android:layout_height="wrap_content"
         android:fillViewport="true"
         android:orientation="vertical" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/howTo"
-        android:visibility="gone"/>
 </RelativeLayout>
