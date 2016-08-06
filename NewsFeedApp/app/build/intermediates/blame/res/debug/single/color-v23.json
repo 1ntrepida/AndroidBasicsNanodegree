@@ -1,11 +1,11 @@
 [
     {
-        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
-        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_btn_checkable.xml"
-    },
-    {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_btn_colored_borderless_text_material.xml",
         "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\color-v23\\abc_tint_btn_checkable.xml"
     },
     {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\color-v23\\abc_tint_seek_thumb.xml",
