@@ -12,12 +12,12 @@
         "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\abc_list_menu_item_layout.xml"
     },
     {
-        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
-        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\notification_media_action.xml"
-    },
-    {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_material.xml",
         "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_media_action.xml",
+        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
@@ -108,12 +108,12 @@
         "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\select_dialog_multichoice_material.xml"
     },
     {
-        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
-        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\notification_template_lines.xml"
-    },
-    {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_lines.xml",
+        "source": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\24.0.0\\res\\layout\\notification_template_lines.xml"
     },
     {
         "merged": "C:\\Users\\Alexa\\Desktop\\Workspace\\AndroidBasicsNanodegree\\NewsFeedApp\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_view_list_nav_layout.xml",
