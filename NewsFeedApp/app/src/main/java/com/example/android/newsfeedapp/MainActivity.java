@@ -3,6 +3,7 @@ package com.example.android.newsfeedapp;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -24,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     private ListView newsListView;
     private ArrayList<Article> news;
-    private String requestUrl = "http://content.guardianapis.com/search?q=saakashvili&api-key=fa37d8a5-26c5-4ccf-b93d-2f4be66dcd7f";
+    public static final String LOG_TAG = MainActivity.class.getSimpleName();
+    private final String requestUrl = "http://content.guardianapis.com/search?q=saakashvili&api-key=fa37d8a5-26c5-4ccf-b93d-2f4be66dcd7f";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
             } catch (IOException e) {
                 // TODO Handle the IOException
+                Log.e(LOG_TAG, "No response from the URL request.", e);
             }
 
             ArrayList<Article> news = extractFeatureFromJson(jsonResponse);
@@ -71,7 +74,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(ArrayList<Article> news) {
-            Toast.makeText(getApplicationContext(), url.toString(), Toast.LENGTH_LONG).show();
             if (news == null) {
                 return;
             }
@@ -92,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
                 jsonResponse = readFromStream(inputStream);
             } catch (IOException e) {
                 // TODO: Handle the exception
+                Log.e(LOG_TAG, "Can't read from stream.", e);
             } finally {
                 if (urlConnection != null) {
                     urlConnection.disconnect();
@@ -120,24 +123,23 @@ public class MainActivity extends AppCompatActivity {
 
         private ArrayList<Article> extractFeatureFromJson(String bookJSON) {
             try {
-                JSONObject baseJsonResponse = new JSONObject(bookJSON);
-                JSONArray featureArray = baseJsonResponse.getJSONArray("response");
+                JSONObject baseJsonResponse = new JSONObject(bookJSON).getJSONObject("response");
+                JSONArray featureArray = baseJsonResponse.getJSONArray("results");
 
                 ArrayList<Article> fetchedNews = new ArrayList<Article>();
                 if (featureArray.length() > 0) {
                     for (int i = 0; i < featureArray.length(); i++) {
                         JSONObject feature = featureArray.getJSONObject(i);
-                        JSONObject properties = feature.getJSONObject("results");
-
                         // Extract out the title, time, and tsunami values
-                        String webTitle = properties.getString("webTitle");
-                        String webUrl = properties.getString("webUrl");
+                        String webTitle = feature.getString("webTitle");
+                        String webUrl = feature.getString("webUrl");
                         // Create a new {@link Event} object
                         fetchedNews.add(new Article(webTitle, webUrl));
                     }
                     return fetchedNews;
                 }
             } catch (JSONException e) {
+                Log.e(LOG_TAG, "Malformed article.", e);
             }
             return null;
         }
@@ -147,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
             try {
                 url = new URL(stringUrl);
             } catch (MalformedURLException exception) {
+                Log.e(LOG_TAG, "Malformed URL.", exception);
                 return null;
             }
             return url;
