@@ -11,16 +11,19 @@ import android.widget.Toast;
  */
 public class Contract extends SQLiteOpenHelper {
 
-    private static final String DB_NAME = "Contracts";
-    private static final String DELETE_LOG_ENTRY_SQL = "DELETE FROM LogEntries WHERE _id = ?;";
-    private static final String FIND_LOG_ENTRY_SQL = "SELECT _id, Longitude, Latitude FROM LogEntries WHERE _id = ?";
-    private static final String FIND_ALL_ENTRIES_SQL = "SELECT * FROM LogEntries";
-    private static final String[] NO_ARGS = {};
+    private static final String TABLE_NAME = "contracts";
+    private static final String COLUMN_NAME_ID = "entryid";
+    private static final String COLUMN_NAME_TITLE = "title";
+    private static final String COLUMN_NAME_COUNT = "count";
+    private static final String TEXT_TYPE = " TEXT";
+    private static final String INTEGER_TYPE = " INTEGER";
+    private static final String INTEGER_KEY_TYPE = " INTEGER PRIMARY KEY";
+    private static final String COMMA_SEP = ",";
     private Context context;
     private final SQLiteDatabase db = getWritableDatabase();
 
     public Contract(Context context) {
-        super(context, DB_NAME, null, 1);
+        super(context, TABLE_NAME, null, 1);
         this.context = context;
     }
 
@@ -38,7 +41,7 @@ public class Contract extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DB_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(getWritableDatabase());
     }
 
