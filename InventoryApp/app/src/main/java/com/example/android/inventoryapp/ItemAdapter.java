@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
 import java.util.List;
 
 /**
@@ -30,11 +31,12 @@ public class ItemAdapter extends ArrayAdapter<Item> {
         TextView nameView = (TextView) listItemView.findViewById(R.id.item_name);
         nameView.setText(currentItem.getName());
 
-        TextView priceView = (TextView) listItemView.findViewById(R.id.item_price);
-        priceView.setText("$"+currentItem.getPrice());
-
         TextView quantityView = (TextView) listItemView.findViewById(R.id.item_quantity);
-        quantityView.setText(currentItem.getQuantity());
+        quantityView.setText(currentItem.getQuantity()+"");
+
+        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
+        TextView priceView = (TextView) listItemView.findViewById(R.id.item_price);
+        priceView.setText(currencyFormatter.format(currentItem.getPrice()));
 
         return listItemView;
     }
