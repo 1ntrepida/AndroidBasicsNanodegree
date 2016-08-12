@@ -1,9 +1,12 @@
 package com.example.android.inventoryapp;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Created by Alexa on 8/10/2016.
  */
-public class Item {
+public class Item implements Parcelable{
 
     private String name;
     private int quantity;
@@ -15,6 +18,9 @@ public class Item {
         this.price = price;
     }
 
+    public Item (Parcel in){
+        
+    }
     public double getPrice() {
         return price;
     }

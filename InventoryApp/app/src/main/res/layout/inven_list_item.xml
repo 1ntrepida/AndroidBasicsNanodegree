@@ -47,6 +47,7 @@
                     android:height="10dp"
                     android:width="10dp"
                     android:text="-"
+                    android:onClick="minusQuantity"
                     android:id="@+id/item_minus_quantity"/>
                 <Button
                     android:layout_width="44dp"
