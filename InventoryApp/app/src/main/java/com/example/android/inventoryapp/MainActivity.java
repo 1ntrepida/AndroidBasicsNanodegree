@@ -1,5 +1,6 @@
 package com.example.android.inventoryapp;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -49,10 +50,33 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
                 }
+                updateUI(parseAllData());
             }
         });
     }
 
+    public ArrayList<Item> parseAllData(){
+        Cursor res = db.getAllData();
+        if(res.getCount() == 0){
+            return null;
+        }
+
+        StringBuffer buffer = new StringBuffer();
+        while (res.moveToNext()){
+            Item newItem = new Item(res.getString(1), res.getInt(2), res.getDouble(3));
+            if (!items.contains(newItem)) {
+                items.add(newItem);
+            }
+        }
+        return items;
+    }
+
+    public void updateUI(ArrayList<Item> items){
+        this.items = items;
+        ListView itemListView = (ListView) findViewById(R.id.list);
+        ItemAdapter adapter = new ItemAdapter(this, items);
+        itemListView.setAdapter(adapter);
+    }
 
     /** public void minusQuantity(View view) {
         final int position = itemsListView.getPositionForView(view);
