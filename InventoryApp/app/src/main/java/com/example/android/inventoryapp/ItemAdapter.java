@@ -1,6 +1,8 @@
 package com.example.android.inventoryapp;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,17 +28,28 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                     R.layout.inven_list_item, parent, false);
         }
 
-        Item currentItem = getItem(position);
+        final Item currentItem = getItem(position);
+
+        listItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent detail = new Intent(getContext(), DetailActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putParcelable("key",currentItem);
+                detail.putExtras(bundle);
+                getContext().startActivity(detail);
+            }
+        });
 
         TextView nameView = (TextView) listItemView.findViewById(R.id.item_name);
-        nameView.setText(currentItem.getName());
+        nameView.setText("Item: " + currentItem.getName());
 
         TextView quantityView = (TextView) listItemView.findViewById(R.id.item_quantity);
-        quantityView.setText(currentItem.getQuantity()+"");
+        quantityView.setText("Quantity: "+currentItem.getQuantity());
 
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
         TextView priceView = (TextView) listItemView.findViewById(R.id.item_price);
-        priceView.setText(currencyFormatter.format(currentItem.getPrice()));
+        priceView.setText("Price: "+currencyFormatter.format(currentItem.getPrice()));
 
         return listItemView;
     }
