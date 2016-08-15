@@ -47,6 +47,8 @@ public class DetailActivity extends ActionBarActivity {
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
         TextView priceView = (TextView) findViewById(R.id.individual_item_price);
         priceView.setText("Price: " + currencyFormatter.format(focus.getPrice()));
+
+        deleteData();
     }
 
     public void deleteData(){
@@ -54,11 +56,10 @@ public class DetailActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 // this is where id use the delete function from the databasehelper class
-                //db.deleteItemsFromDatabase(focus.getName());
+                db.deleteItemsFromDatabase(focus.getName());
                 //modify.deleteItemsFromDatabase(focus.getName());
             }
         });
-        finish();
     }
 
     public static class PlaceholderFragment extends Fragment {

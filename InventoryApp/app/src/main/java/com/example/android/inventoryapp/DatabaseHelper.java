@@ -66,7 +66,4 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void deleteItemsFromDatabase(String name){
         db.delete(DatabaseContract.Table.TABLE_NAME, DatabaseContract.Table.COLUMN_NAME_NAME + " = "+ name, null);
     }
-
-
-
 }

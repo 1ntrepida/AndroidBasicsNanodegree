@@ -47,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         itemsListView.setEmptyView(view); **/
 
         items = new ArrayList<Item>();
-        items.add(new Item("Gyarados", 420, 5.00));
         updateUI(items);
 
         addItem.setOnClickListener(new View.OnClickListener() {
@@ -63,8 +62,12 @@ public class MainActivity extends AppCompatActivity {
                                                // TODO Handle the Exception
                                            }
                                            boolean valid = validateInfo(add_name, add_quantity, add_price);
-                                           boolean isInserted = db.insert(add_name, add_quantity, add_price);
-                                           if (isInserted && valid) {
+                                           boolean isInserted = false;
+                                           if (valid) {
+                                               isInserted = db.insert(add_name, add_quantity, add_price);
+                                           }
+
+                                           if (isInserted) {
                                                Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
                                            } else {
                                                Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
@@ -83,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean validateInfo(String name, int quantity, double price) {
-        if (name.equals("") || quantity < 0 || price < 0) {
+        if (name.equals("") || quantity <= 0 || price <= 0) {
             return false;
         } else {
             return true;
