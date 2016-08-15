@@ -19,6 +19,7 @@ public class DetailActivity extends ActionBarActivity {
     Button deleteButton;
     Button decrementButton;
     private DatabaseHelper db;
+    Item focus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +36,7 @@ public class DetailActivity extends ActionBarActivity {
         deleteButton = (Button) findViewById(R.id.delete);
 
         Bundle bundle = getIntent().getExtras();
-        Item focus = bundle.getParcelable("key");
+        focus = bundle.getParcelable("key");
 
         TextView nameView = (TextView) findViewById(R.id.individual_item_name);
         nameView.setText("Item: " + focus.getName());
@@ -54,6 +55,7 @@ public class DetailActivity extends ActionBarActivity {
             public void onClick(View view) {
                 // this is where id use the delete function from the databasehelper class
                 //db.deleteItemsFromDatabase(focus.getName());
+                //modify.deleteItemsFromDatabase(focus.getName());
             }
         });
         finish();

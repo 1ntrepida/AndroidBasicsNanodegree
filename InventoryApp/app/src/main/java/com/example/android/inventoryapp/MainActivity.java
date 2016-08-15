@@ -18,8 +18,9 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Item> items;
     private Button addItem;
     private EditText name, quantity, price;
-    private DatabaseHelper db;
     private Cursor res;
+    public DatabaseHelper db;
+    private ListView itemListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +40,11 @@ public class MainActivity extends AppCompatActivity {
             view.setVisibility(View.VISIBLE);
             itemsListView.setEmptyView(view);
         }
+        itemListView = (ListView) findViewById(R.id.list);
+
+        /** TextView view = (TextView) findViewById(R.id.empty_view);
+        view.setVisibility(View.VISIBLE);
+        itemsListView.setEmptyView(view); **/
 
         items = new ArrayList<Item>();
         items.add(new Item("Gyarados", 420, 5.00));
@@ -102,7 +108,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(ArrayList<Item> items) {
         this.items = items;
-        ListView itemListView = (ListView) findViewById(R.id.list);
         ItemAdapter adapter = new ItemAdapter(this, items);
         itemListView.setAdapter(adapter);
     }
