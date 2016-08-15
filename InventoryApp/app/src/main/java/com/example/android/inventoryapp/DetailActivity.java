@@ -18,6 +18,7 @@ public class DetailActivity extends ActionBarActivity {
 
     Button deleteButton;
     Button decrementButton;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,8 @@ public class DetailActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+
+        db = new DatabaseHelper(getApplicationContext());
 
         deleteButton = (Button) findViewById(R.id.delete);
 
@@ -43,8 +46,6 @@ public class DetailActivity extends ActionBarActivity {
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
         TextView priceView = (TextView) findViewById(R.id.individual_item_price);
         priceView.setText("Price: " + currencyFormatter.format(focus.getPrice()));
-
-
     }
 
     public void deleteData(){
@@ -52,6 +53,7 @@ public class DetailActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 // this is where id use the delete function from the databasehelper class
+                //db.deleteItemsFromDatabase(focus.getName());
             }
         });
         finish();

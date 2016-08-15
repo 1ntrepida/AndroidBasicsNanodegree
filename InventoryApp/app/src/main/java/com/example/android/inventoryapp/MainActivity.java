@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private Button addItem;
     private EditText name, quantity, price;
     private DatabaseHelper db;
+    private Cursor res;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +31,14 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name);
         quantity = (EditText) findViewById(R.id.quantity);
         price = (EditText) findViewById(R.id.price);
-        TextView view = (TextView) findViewById(R.id.empty_view);
-        view.setVisibility(View.VISIBLE);
-        itemsListView.setEmptyView(view);
+
+        res = db.getAllData();
+
+        if(res == null) {
+            TextView view = (TextView) findViewById(R.id.empty_view);
+            view.setVisibility(View.VISIBLE);
+            itemsListView.setEmptyView(view);
+        }
 
         items = new ArrayList<Item>();
         items.add(new Item("Gyarados", 420, 5.00));
@@ -59,6 +65,8 @@ public class MainActivity extends AppCompatActivity {
                                            }
                                            items = parseAllData();
                                            updateUI(items);
+
+
                                        }
             /** where the camera intent should go but i'm having trouble with it
              Intent i = new Intent(Intent.ACTION_PICK,
@@ -77,7 +85,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public ArrayList<Item> parseAllData() {
-        Cursor res = db.getAllData();
+        res = db.getAllData();
+        items.clear();
         if (res.getCount() == 0) {
             return null;
         }
