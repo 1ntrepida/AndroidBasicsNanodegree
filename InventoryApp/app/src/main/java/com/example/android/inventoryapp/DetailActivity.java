@@ -18,6 +18,7 @@ public class DetailActivity extends ActionBarActivity {
 
     Button deleteButton;
     Button decrementButton;
+    Item focus;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +33,7 @@ public class DetailActivity extends ActionBarActivity {
         deleteButton = (Button) findViewById(R.id.delete);
 
         Bundle bundle = getIntent().getExtras();
-        Item focus = bundle.getParcelable("key");
+        focus = bundle.getParcelable("key");
 
         TextView nameView = (TextView) findViewById(R.id.individual_item_name);
         nameView.setText("Item: " + focus.getName());
@@ -44,7 +45,7 @@ public class DetailActivity extends ActionBarActivity {
         TextView priceView = (TextView) findViewById(R.id.individual_item_price);
         priceView.setText("Price: " + currencyFormatter.format(focus.getPrice()));
 
-
+        /** when i add deleteData() here, the items in the listview are no longer clickable**/
     }
 
     public void deleteData(){
@@ -52,6 +53,9 @@ public class DetailActivity extends ActionBarActivity {
             @Override
             public void onClick(View view) {
                 // this is where id use the delete function from the databasehelper class
+                DatabaseHelper modify = MainActivity.db;
+                modify.deleteItemsFromDatabase(focus.getName());
+                MainActivity.db = modify;
             }
         });
         finish();

@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -18,7 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<Item> items;
     private Button addItem;
     private EditText name, quantity, price;
-    private DatabaseHelper db;
+    public static DatabaseHelper db;
+    private ListView itemListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +30,11 @@ public class MainActivity extends AppCompatActivity {
         name = (EditText) findViewById(R.id.name);
         quantity = (EditText) findViewById(R.id.quantity);
         price = (EditText) findViewById(R.id.price);
-        TextView view = (TextView) findViewById(R.id.empty_view);
+        itemListView = (ListView) findViewById(R.id.list);
+
+        /** TextView view = (TextView) findViewById(R.id.empty_view);
         view.setVisibility(View.VISIBLE);
-        itemsListView.setEmptyView(view);
+        itemsListView.setEmptyView(view); **/
 
         items = new ArrayList<Item>();
         items.add(new Item("Gyarados", 420, 5.00));
@@ -93,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(ArrayList<Item> items) {
         this.items = items;
-        ListView itemListView = (ListView) findViewById(R.id.list);
         ItemAdapter adapter = new ItemAdapter(this, items);
         itemListView.setAdapter(adapter);
     }
