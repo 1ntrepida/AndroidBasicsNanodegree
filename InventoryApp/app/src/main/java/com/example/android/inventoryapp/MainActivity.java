@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         res = db.getAllData();
         items = new ArrayList<Item>();
+        items = parseAllData();
 
         adapter = new ItemAdapter(this, items);
         itemListView.setAdapter(adapter);

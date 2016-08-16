@@ -38,6 +38,13 @@
             android:id="@+id/increment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="Add"
+            android:width="20dp"/>
+
+        <Button
+            android:id="@+id/order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Order"
             android:width="20dp"/>
     </LinearLayout>
