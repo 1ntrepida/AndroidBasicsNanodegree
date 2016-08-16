@@ -2,7 +2,9 @@ package com.example.android.inventoryapp;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -25,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
     private ItemAdapter adapter;
     private TextView view;
 
+    private static final int SELECT_SINGLE_PICTURE = 101;
+    public static final String IMAGE_TYPE = "image/*";
+    private String selectedImagePath;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         db = new DatabaseHelper(this);
+        selectedImagePath = "";
 
         itemListView = (ListView) findViewById(R.id.list);
         addItem = (Button) findViewById(R.id.create_new_item);
@@ -68,10 +75,10 @@ public class MainActivity extends AppCompatActivity {
 
                 if (isInserted > 0) {
                     Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
-                    Intent camera = new Intent();
-                    camera.setAction("android.media.action.IMAGE_CAPTURE");
-                    camera.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    getApplicationContext().startActivity(camera);
+                    Intent intent = new Intent();
+                    intent.setType(IMAGE_TYPE);
+                    intent.setAction(Intent.ACTION_GET_CONTENT);
+                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_SINGLE_PICTURE);
                 } else {
                     Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
                 }
@@ -89,12 +96,42 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
     public boolean validateInfo(String name, int quantity, double price) {
         if (name.equals("") || quantity <= 0 || price <= 0) {
             return false;
         } else {
             return true;
         }
+    }
+
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == RESULT_OK) {
+            if (requestCode == SELECT_SINGLE_PICTURE) {
+                Uri selectedImageUri = data.getData();
+                selectedImagePath = getPath(selectedImageUri);
+            }
+        }
+    }
+
+    public String getPath(Uri uri) {
+        if (uri == null) {
+            return null;
+        }
+
+        // try to retrieve the image from the media store first
+        // this will only work for images selected from gallery
+        String[] projection = {MediaStore.Images.Media.DATA};
+        Cursor cursor = managedQuery(uri, projection, null, null, null);
+        if (cursor != null) {
+            int column_index = cursor
+                    .getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        }
+        // this is our fallback here, thanks to the answer from @mad indicating this is needed for
+        // working code based on images selected using other file managers
+        return uri.getPath();
     }
 
     public ArrayList<Item> parseAllData() {

@@ -12,11 +12,13 @@ public class Item implements Parcelable{
     private int quantity;
     private double price;
     private int id;
+    private String imagePath;
 
     public Item(String name, int quantity, double price){
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        //this.imagePath = imagePath;
         id = -1;
     }
 
