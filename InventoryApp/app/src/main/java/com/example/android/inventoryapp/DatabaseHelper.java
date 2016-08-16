@@ -22,40 +22,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(DatabaseContract.Table.CREATE_TABLE);
+        db.execSQL(DatabaseContract.Inventory.CREATE_TABLE);
 
     }
 
-    public boolean insert(String name, int quantity, double price){
+    //returns item id
+    public int insert(String name, int quantity, double price){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_NAME, name);
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_QUANTITY, quantity);
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_PRICE, price);
-        long result = db.insert(DatabaseContract.Table.TABLE_NAME, null, contentValues);
-        if (result == -1)
-            return false;
-        else
-            return true;
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_NAME, name);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_QUANTITY, quantity);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_PRICE, price);
+        long result = db.insert(DatabaseContract.Inventory.TABLE_NAME, null, contentValues);
+        return (int) result;
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.Table.TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + DatabaseContract.Inventory.TABLE_NAME);
         onCreate(getWritableDatabase());
     }
 
     public Cursor getAllData(){
-        Cursor res = db.query(DatabaseContract.Table.TABLE_NAME, null, null, null, null, null, null);
+        Cursor res = db.query(DatabaseContract.Inventory.TABLE_NAME, null, null, null, null, null, null);
         return res;
     }
 
     public boolean updateData(int id, String name, int quantity, double price){
         ContentValues contentValues = new ContentValues();
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_ID, id);
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_NAME, name);
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_QUANTITY, quantity);
-        contentValues.put(DatabaseContract.Table.COLUMN_NAME_PRICE, price);
-        db.update(DatabaseContract.Table.TABLE_NAME, contentValues, "ID = ?", new String[]{Integer.toString(id)});
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_ID, id);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_NAME, name);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_QUANTITY, quantity);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_PRICE, price);
+        db.update(DatabaseContract.Inventory.TABLE_NAME, contentValues, "ID = ?", new String[]{Integer.toString(id)});
         return true;
     }
 
@@ -64,6 +62,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void deleteItemsFromDatabase(String name){
-        db.delete(DatabaseContract.Table.TABLE_NAME, DatabaseContract.Table.COLUMN_NAME_NAME + " = "+ name, null);
+        db.delete(DatabaseContract.Inventory.TABLE_NAME, DatabaseContract.Inventory.COLUMN_NAME_NAME + " = '"+ name+"'", null);
     }
 }

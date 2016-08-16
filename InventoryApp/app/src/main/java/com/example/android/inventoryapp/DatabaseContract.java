@@ -19,7 +19,7 @@ public final class DatabaseContract {
     private DatabaseContract() {
     }
 
-    public static abstract class Table implements BaseColumns {
+    public static abstract class Inventory implements BaseColumns {
         public static final String TABLE_NAME = "contracts_table";
         public static final String COLUMN_NAME_ID = "entryid";
         public static final String COLUMN_NAME_NAME = "name";

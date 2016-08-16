@@ -11,11 +11,13 @@ public class Item implements Parcelable{
     private String name;
     private int quantity;
     private double price;
+    private int id;
 
     public Item(String name, int quantity, double price){
         this.name = name;
         this.quantity = quantity;
         this.price = price;
+        id = -1;
     }
 
     public Item (Parcel in){
@@ -45,6 +47,14 @@ public class Item implements Parcelable{
 
     public String getName() {
         return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public void setQuantity(int quantity) {

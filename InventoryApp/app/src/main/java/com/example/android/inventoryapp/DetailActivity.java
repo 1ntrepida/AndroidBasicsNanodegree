@@ -20,6 +20,7 @@ public class DetailActivity extends ActionBarActivity {
     Button decrementButton;
     private DatabaseHelper db;
     Item focus;
+    TextView quantityView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,7 @@ public class DetailActivity extends ActionBarActivity {
         db = new DatabaseHelper(getApplicationContext());
 
         deleteButton = (Button) findViewById(R.id.delete);
+        decrementButton = (Button) findViewById(R.id.decrement);
 
         Bundle bundle = getIntent().getExtras();
         focus = bundle.getParcelable("key");
@@ -41,7 +43,7 @@ public class DetailActivity extends ActionBarActivity {
         TextView nameView = (TextView) findViewById(R.id.individual_item_name);
         nameView.setText("Item: " + focus.getName());
 
-        TextView quantityView = (TextView) findViewById(R.id.individual_item_quantity);
+        quantityView = (TextView) findViewById(R.id.individual_item_quantity);
         quantityView.setText("Quantity: " + focus.getQuantity());
 
         NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance();
@@ -49,6 +51,12 @@ public class DetailActivity extends ActionBarActivity {
         priceView.setText("Price: " + currencyFormatter.format(focus.getPrice()));
 
         deleteData();
+        decrementData();
+    }
+
+    private void changeQuantity(int newNum) {
+        quantityView.setText("Quantity: " + newNum);
+        db.updateData(focus.getId(),focus.getName(), focus.getQuantity(), focus.getPrice());
     }
 
     public void deleteData(){
@@ -57,10 +65,21 @@ public class DetailActivity extends ActionBarActivity {
             public void onClick(View view) {
                 // this is where id use the delete function from the databasehelper class
                 db.deleteItemsFromDatabase(focus.getName());
-                //modify.deleteItemsFromDatabase(focus.getName());
             }
         });
     }
+
+    public void decrementData(){
+        decrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(focus.getQuantity() >= 0) {
+                    changeQuantity(focus.getQuantity() - 1);
+                }
+            }
+        });
+    }
+
 
     public static class PlaceholderFragment extends Fragment {
 

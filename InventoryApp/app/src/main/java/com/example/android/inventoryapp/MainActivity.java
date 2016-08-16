@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText name, quantity, price;
     private Cursor res;
     public DatabaseHelper db;
+    private int isInserted;
     private ListView itemListView;
 
     @Override
@@ -42,10 +43,6 @@ public class MainActivity extends AppCompatActivity {
         }
         itemListView = (ListView) findViewById(R.id.list);
 
-        /** TextView view = (TextView) findViewById(R.id.empty_view);
-        view.setVisibility(View.VISIBLE);
-        itemsListView.setEmptyView(view); **/
-
         items = new ArrayList<Item>();
         updateUI(items);
 
@@ -62,13 +59,14 @@ public class MainActivity extends AppCompatActivity {
                                                // TODO Handle the Exception
                                            }
                                            boolean valid = validateInfo(add_name, add_quantity, add_price);
-                                           boolean isInserted = false;
+                                           isInserted = -1;
                                            if (valid) {
                                                isInserted = db.insert(add_name, add_quantity, add_price);
                                            }
 
-                                           if (isInserted) {
+                                           if (isInserted > 0) {
                                                Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+
                                            } else {
                                                Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
                                            }
@@ -103,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         StringBuffer buffer = new StringBuffer();
         while (res.moveToNext()) {
             Item newItem = new Item(res.getString(1), res.getInt(2), res.getDouble(3));
+            newItem.setId(isInserted);
             items.add(newItem);
         }
         res.close();
