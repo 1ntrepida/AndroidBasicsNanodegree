@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private int isInserted;
     private ListView itemListView;
     private ItemAdapter adapter;
+    private TextView view;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,16 +40,13 @@ public class MainActivity extends AppCompatActivity {
         adapter = new ItemAdapter(this, items);
 
         res = db.getAllData();
+        items = new ArrayList<Item>();
+
         adapter = new ItemAdapter(this, items);
         itemListView.setAdapter(adapter);
 
-        if (res == null) {
-            TextView view = (TextView) findViewById(R.id.empty_view);
-            view.setVisibility(View.VISIBLE);
-            itemListView.setEmptyView(view);
-        }
-
-        items = new ArrayList<Item>();
+        //initializes on empty view
+        setAppEmptyView(items.size());
 
         addItem.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         res = db.getAllData();
         items.clear();
         if (res.getCount() == 0) {
-            return null;
+            return new ArrayList<Item>();
         }
 
         StringBuffer buffer = new StringBuffer();
@@ -116,13 +114,20 @@ public class MainActivity extends AppCompatActivity {
         return items;
     }
 
+    public void setAppEmptyView(int size) {
+        view = (TextView) findViewById(R.id.empty_view);
+        if (items.size() == 0) {
+            view.setVisibility(View.VISIBLE);
+        } else {
+            view.setVisibility(View.GONE);
+        }
+        itemListView.setEmptyView(view);
+    }
+
     public void updateUI(ArrayList<Item> items) {
         this.items = items;
         adapter = new ItemAdapter(this, items);
-        if(itemListView == null)
-        {
-            int wut;
-        }
         itemListView.setAdapter(adapter);
+        setAppEmptyView(items.size());
     }
 }
