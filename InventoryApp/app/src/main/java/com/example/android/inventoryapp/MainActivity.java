@@ -1,5 +1,6 @@
 package com.example.android.inventoryapp;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.api.GoogleApiClient;
 
 import java.util.ArrayList;
 
@@ -22,6 +25,11 @@ public class MainActivity extends AppCompatActivity {
     public DatabaseHelper db;
     private int isInserted;
     private ListView itemListView;
+    /**
+     * ATTENTION: This was auto-generated to implement the App Indexing API.
+     * See https://g.co/AppIndexing/AndroidStudio for more information.
+     */
+    private GoogleApiClient client;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         res = db.getAllData();
 
-        if(res == null) {
+        if (res == null) {
             TextView view = (TextView) findViewById(R.id.empty_view);
             view.setVisibility(View.VISIBLE);
             itemsListView.setEmptyView(view);
@@ -73,12 +81,11 @@ public class MainActivity extends AppCompatActivity {
                                            items = parseAllData();
                                            updateUI(items);
 
-
+                                           Intent camera = new Intent();
+                                           camera.setAction("android.media.action.IMAGE_CAPTURE");
+                                           camera.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                           getApplicationContext().startActivity(camera);
                                        }
-            /** where the camera intent should go but i'm having trouble with it
-             Intent i = new Intent(Intent.ACTION_PICK,
-             android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-             startActivity(i, ACTIVITY_SELECT_IMAGE); **/
                                    }
         );
     }
@@ -113,4 +120,5 @@ public class MainActivity extends AppCompatActivity {
         ItemAdapter adapter = new ItemAdapter(this, items);
         itemListView.setAdapter(adapter);
     }
+
 }
