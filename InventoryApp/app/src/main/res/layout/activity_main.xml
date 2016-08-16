@@ -20,12 +20,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/quantity"
+        android:inputType="number"
         android:hint="Item Quantity" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/price"
+        android:inputType="numberDecimal"
         android:hint="Item Price"/>
 
     <Button
@@ -34,6 +36,11 @@
         android:id="@+id/create_new_item"
         android:text="Create new item!"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateUI"
+        android:text="Update List View"/>
 
 
     <ListView

@@ -53,7 +53,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_NAME, name);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_QUANTITY, quantity);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_PRICE, price);
-        db.update(DatabaseContract.Inventory.TABLE_NAME, contentValues, "ID = ?", new String[]{Integer.toString(id)});
+        db.update(DatabaseContract.Inventory.TABLE_NAME, contentValues, DatabaseContract.Inventory.COLUMN_NAME_ID + " = ?", new String[]{Integer.toString(id)});
         return true;
     }
 

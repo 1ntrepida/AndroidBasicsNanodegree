@@ -11,25 +11,18 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.common.api.GoogleApiClient;
-
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ListView itemsListView;
     private ArrayList<Item> items;
-    private Button addItem;
+    private Button addItem, update;
     private EditText name, quantity, price;
     private Cursor res;
     public DatabaseHelper db;
     private int isInserted;
     private ListView itemListView;
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
+    private ItemAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,57 +30,65 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         db = new DatabaseHelper(this);
 
+        itemListView = (ListView) findViewById(R.id.list);
         addItem = (Button) findViewById(R.id.create_new_item);
+        update = (Button) findViewById(R.id.updateUI);
         name = (EditText) findViewById(R.id.name);
         quantity = (EditText) findViewById(R.id.quantity);
         price = (EditText) findViewById(R.id.price);
+        adapter = new ItemAdapter(this, items);
 
         res = db.getAllData();
+        adapter = new ItemAdapter(this, items);
+        itemListView.setAdapter(adapter);
 
         if (res == null) {
             TextView view = (TextView) findViewById(R.id.empty_view);
             view.setVisibility(View.VISIBLE);
-            itemsListView.setEmptyView(view);
+            itemListView.setEmptyView(view);
         }
-        itemListView = (ListView) findViewById(R.id.list);
 
         items = new ArrayList<Item>();
-        updateUI(items);
 
         addItem.setOnClickListener(new View.OnClickListener() {
-                                       @Override
-                                       public void onClick(View view) {
-                                           String add_name = name.getText().toString();
-                                           int add_quantity = 0;
-                                           double add_price = 0;
-                                           try {
-                                               add_quantity = Integer.parseInt(quantity.getText().toString());
-                                               add_price = Double.parseDouble(price.getText().toString());
-                                           } catch (Exception e) {
-                                               // TODO Handle the Exception
-                                           }
-                                           boolean valid = validateInfo(add_name, add_quantity, add_price);
-                                           isInserted = -1;
-                                           if (valid) {
-                                               isInserted = db.insert(add_name, add_quantity, add_price);
-                                           }
+            @Override
+            public void onClick(View view) {
+                String add_name = name.getText().toString();
+                int add_quantity = 0;
+                double add_price = 0;
+                try {
+                    add_quantity = Integer.parseInt(quantity.getText().toString());
+                    add_price = Double.parseDouble(price.getText().toString());
+                } catch (Exception e) {
+                    // TODO Handle the Exception
+                }
+                boolean valid = validateInfo(add_name, add_quantity, add_price);
+                isInserted = -1;
+                if (valid) {
+                    isInserted = db.insert(add_name, add_quantity, add_price);
+                }
 
-                                           if (isInserted > 0) {
-                                               Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                if (isInserted > 0) {
+                    Toast.makeText(MainActivity.this, "Data inserted", Toast.LENGTH_LONG).show();
+                    Intent camera = new Intent();
+                    camera.setAction("android.media.action.IMAGE_CAPTURE");
+                    camera.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    getApplicationContext().startActivity(camera);
+                } else {
+                    Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
+                }
+                items = parseAllData();
+                updateUI(items);
+            }
+        });
 
-                                           } else {
-                                               Toast.makeText(MainActivity.this, "Data not inserted", Toast.LENGTH_LONG).show();
-                                           }
-                                           items = parseAllData();
-                                           updateUI(items);
-
-                                           Intent camera = new Intent();
-                                           camera.setAction("android.media.action.IMAGE_CAPTURE");
-                                           camera.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                           getApplicationContext().startActivity(camera);
-                                       }
-                                   }
-        );
+        update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                items = parseAllData();
+                updateUI(items);
+            }
+        });
     }
 
     public boolean validateInfo(String name, int quantity, double price) {
@@ -117,8 +118,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateUI(ArrayList<Item> items) {
         this.items = items;
-        ItemAdapter adapter = new ItemAdapter(this, items);
+        adapter = new ItemAdapter(this, items);
+        if(itemListView == null)
+        {
+            int wut;
+        }
         itemListView.setAdapter(adapter);
     }
-
 }

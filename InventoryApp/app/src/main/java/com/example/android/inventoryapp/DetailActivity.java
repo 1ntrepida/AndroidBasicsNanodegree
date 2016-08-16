@@ -11,16 +11,14 @@ import android.widget.TextView;
 
 import java.text.NumberFormat;
 
-/**
- * Created by Alexa on 8/13/2016.
- */
 public class DetailActivity extends ActionBarActivity {
 
-    Button deleteButton;
-    Button decrementButton;
+    private Button deleteButton;
+    private Button decrementButton;
+    private Button incrementButton;
     private DatabaseHelper db;
-    Item focus;
-    TextView quantityView;
+    private Item focus;
+    private TextView quantityView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +34,7 @@ public class DetailActivity extends ActionBarActivity {
 
         deleteButton = (Button) findViewById(R.id.delete);
         decrementButton = (Button) findViewById(R.id.decrement);
+        incrementButton = (Button) findViewById(R.id.increment);
 
         Bundle bundle = getIntent().getExtras();
         focus = bundle.getParcelable("key");
@@ -52,11 +51,12 @@ public class DetailActivity extends ActionBarActivity {
 
         deleteData();
         decrementData();
+        incrementData();
     }
 
     private void changeQuantity(int newNum) {
         quantityView.setText("Quantity: " + newNum);
-        db.updateData(focus.getId(),focus.getName(), focus.getQuantity(), focus.getPrice());
+        db.updateData(focus.getId() ,focus.getName(), focus.getQuantity(), focus.getPrice());
     }
 
     public void deleteData(){
@@ -73,8 +73,21 @@ public class DetailActivity extends ActionBarActivity {
         decrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(focus.getQuantity() >= 0) {
-                    changeQuantity(focus.getQuantity() - 1);
+                if(focus.getQuantity() > 0) {
+                    focus.setQuantity(focus.getQuantity() -1);
+                    changeQuantity(focus.getQuantity());
+                }
+            }
+        });
+    }
+
+    public void incrementData(){
+        incrementButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(focus.getQuantity() > 0) {
+                    focus.setQuantity(focus.getQuantity() + 20);
+                    changeQuantity(focus.getQuantity());
                 }
             }
         });
