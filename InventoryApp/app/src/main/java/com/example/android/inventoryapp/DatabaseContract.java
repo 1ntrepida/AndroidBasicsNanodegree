@@ -25,6 +25,7 @@ public final class DatabaseContract {
         public static final String COLUMN_NAME_NAME = "name";
         public static final String COLUMN_NAME_QUANTITY = "quantity";
         public static final String COLUMN_NAME_PRICE = "price";
+        public static final String COLUMN_NAME_ITEMPATH = "itemPath";
 
 
         public static final String CREATE_TABLE = "CREATE TABLE " +
@@ -32,7 +33,8 @@ public final class DatabaseContract {
                 COLUMN_NAME_ID + " INTEGER PRIMARY KEY," +
                 COLUMN_NAME_NAME + TEXT_TYPE + COMMA_SEP +
                 COLUMN_NAME_QUANTITY + INT_TYPE + COMMA_SEP +
-                COLUMN_NAME_PRICE + DOUBLE_TYPE + " )";
+                COLUMN_NAME_PRICE + DOUBLE_TYPE + COMMA_SEP +
+                COLUMN_NAME_ITEMPATH + TEXT_TYPE + " )";
         public static final String DELETE_TABLE = "DROP TABLE IF EXISTS " + TABLE_NAME;
     }
 }

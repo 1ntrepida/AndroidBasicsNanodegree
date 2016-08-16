@@ -64,7 +64,7 @@ public class ItemAdapter extends ArrayAdapter<Item> {
                     currentItem.setQuantity(currentItem.getQuantity() -1);
                     quantityView.setText("Quantity: " + currentItem.getQuantity());
                     db.updateData(currentItem.getId() ,currentItem.getName(),
-                            currentItem.getQuantity(), currentItem.getPrice());
+                            currentItem.getQuantity(), currentItem.getPrice(), currentItem.getImagePath());
                 }
             }
         });

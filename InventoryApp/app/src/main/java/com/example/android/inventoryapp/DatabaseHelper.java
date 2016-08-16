@@ -27,11 +27,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //returns item id
-    public int insert(String name, int quantity, double price){
+    public int insert(String name, int quantity, double price, String itemPath){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_NAME, name);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_QUANTITY, quantity);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_PRICE, price);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_ITEMPATH, itemPath);
         long result = db.insert(DatabaseContract.Inventory.TABLE_NAME, null, contentValues);
         return (int) result;
     }
@@ -47,12 +48,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return res;
     }
 
-    public boolean updateData(int id, String name, int quantity, double price){
+    public boolean updateData(int id, String name, int quantity, double price, String itemPath){
         ContentValues contentValues = new ContentValues();
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_ID, id);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_NAME, name);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_QUANTITY, quantity);
         contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_PRICE, price);
+        contentValues.put(DatabaseContract.Inventory.COLUMN_NAME_ITEMPATH, itemPath);
         db.update(DatabaseContract.Inventory.TABLE_NAME, contentValues, DatabaseContract.Inventory.COLUMN_NAME_ID + " = ?", new String[]{Integer.toString(id)});
         return true;
     }

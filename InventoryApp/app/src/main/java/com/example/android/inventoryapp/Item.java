@@ -14,11 +14,11 @@ public class Item implements Parcelable{
     private int id;
     private String imagePath;
 
-    public Item(String name, int quantity, double price){
+    public Item(String name, int quantity, double price, String imagePath){
         this.name = name;
         this.quantity = quantity;
         this.price = price;
-        //this.imagePath = imagePath;
+        this.imagePath = imagePath;
         id = -1;
     }
 
@@ -26,6 +26,7 @@ public class Item implements Parcelable{
         name = in.readString();
         quantity = in.readInt();
         price = in.readDouble();
+        imagePath = in.readString();
     }
 
     @Override
@@ -37,6 +38,7 @@ public class Item implements Parcelable{
         out.writeString(name);
         out.writeInt(quantity);
         out.writeDouble(price);
+        out.writeString(imagePath);
     }
 
     public double getPrice() {
@@ -58,6 +60,10 @@ public class Item implements Parcelable{
     public int getId() {
         return id;
     }
+
+    public String getImagePath() {return imagePath;}
+
+    public void setImagePath(String imagePath) {this.imagePath = imagePath;}
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;

@@ -1,5 +1,7 @@
 package com.example.android.inventoryapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -7,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -39,6 +42,9 @@ public class DetailActivity extends ActionBarActivity {
         Bundle bundle = getIntent().getExtras();
         focus = bundle.getParcelable("key");
 
+        ImageView imageView = (ImageView) findViewById(R.id.image_detail);
+        imageView.setImageURI(Uri.parse(focus.getImagePath()));
+
         TextView nameView = (TextView) findViewById(R.id.individual_item_name);
         nameView.setText("Item: " + focus.getName());
 
@@ -56,7 +62,7 @@ public class DetailActivity extends ActionBarActivity {
 
     private void changeQuantity(int newNum) {
         quantityView.setText("Quantity: " + newNum);
-        db.updateData(focus.getId() ,focus.getName(), focus.getQuantity(), focus.getPrice());
+        db.updateData(focus.getId() ,focus.getName(), focus.getQuantity(), focus.getPrice(), focus.getImagePath());
     }
 
     public void deleteData(){
@@ -77,6 +83,7 @@ public class DetailActivity extends ActionBarActivity {
                     focus.setQuantity(focus.getQuantity() -1);
                     changeQuantity(focus.getQuantity());
                 }
+                onBackPressed();
             }
         });
     }
@@ -85,10 +92,8 @@ public class DetailActivity extends ActionBarActivity {
         incrementButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(focus.getQuantity() > 0) {
-                    focus.setQuantity(focus.getQuantity() + 20);
-                    changeQuantity(focus.getQuantity());
-                }
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel: ") /** **/);
+                startActivity(intent);
             }
         });
     }
