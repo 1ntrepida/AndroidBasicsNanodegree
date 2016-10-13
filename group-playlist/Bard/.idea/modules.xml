@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/InventoryApp.iml" filepath="$PROJECT_DIR$/InventoryApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Bard.iml" filepath="$PROJECT_DIR$/Bard.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/group-playlist/group-playlist.iml" filepath="$PROJECT_DIR$/group-playlist/group-playlist.iml" />
     </modules>
   </component>
 </project>

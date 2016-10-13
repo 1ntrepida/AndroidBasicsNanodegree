@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
+    
     public ArrayList<Item> parseAllData() {
         res = db.getAllData();
         items.clear();
